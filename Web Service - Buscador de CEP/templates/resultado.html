@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+{% block conteudo %}
+        <br></br>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <tr>
+                <th>CEP</th>
+                <td>{{ cep.cep }}</td>
+            </tr>
+            <tr>
+                <th>Logradouro</th>
+                <td>{{ cep.logradouro }}</td>
+            </tr>
+            <tr>
+                <th>Bairro</th>
+                <td>{{ cep.bairro }}</td>
+            </tr>
+            <tr>
+                <th>Localidade</th>
+                <td>{{ cep.localidade }}</td>
+            </tr>
+            <tr>
+                <th>UF</th>
+                <td>{{ cep.uf }}</td>
+            </tr>
+            <tr>
+                <th>IBGE</th>
+                <td>{{ cep.ibge }}</td>
+            </tr>
+            <tr>
+                <th>DDD</th>
+                <td>{{ cep.ddd }}</td>
+            </tr>
+            <tr>
+                <th>SIAFI</th>
+                <td>{{ cep.siafi }}</td>
+            </tr>
+        </table>
+        <form method="POST" action="{{ url_for('index') }}">
+            <div class="wrapper">
+            <button type="submit" class="btn btn-primary btn-salvar">Nova Busca</button>
+            </div>
+        </form>
+
+
+{% endblock %}
