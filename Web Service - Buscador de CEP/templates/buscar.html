@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+{% block conteudo %}
+        <br></br>
+        <form method="POST" action="{{ url_for('buscar') }}">
+            <div class="form-group">
+                <label for="console">Insira o CEP: </label>
+                <input type="text" name="cep" title = "Somente números com 8 dígitos! Ex: 12345678" required pattern="[0-9]{8}">
+            <button type="submit" class="btn btn-primary btn-salvar">Buscar</button>
+            </div>
+        </form>
+        <br></br>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <caption>Buscas recentes...</caption>
+            <thead class="thead-default">
+                <tr>
+                    <th>CEP</th>
+                    <th>Logradouro</th>
+                    <th>Bairro</th>
+                    <th>Localidade</th>
+                    <th>UF</th>
+                    <th>IBGE</th>
+                    <th>DDD</th>
+                    <th>SIAFI</th>
+                    <th>Numero de buscas</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for cep in ceps[:11]|reverse %}
+                <tr>
+                    <td>{{ cep.cep }}</td>
+                    <td>{{ cep.logradouro }}</td>
+                    <td>{{ cep.bairro }}</td>
+                    <td>{{ cep.localidade }}</td>
+                    <td>{{ cep.uf }}</td>
+                    <td>{{ cep.ibge }}</td>
+                    <td>{{ cep.ddd }}</td>
+                    <td>{{ cep.siafi }}</td>
+                    <td>{{ cep.buscas }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+{% endblock %}
